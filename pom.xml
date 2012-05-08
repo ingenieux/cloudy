@@ -20,6 +20,10 @@
     Cloudy is a set of prepackaged utilities for AWS Web Applications
   </description>
 
+        <modules>
+          <module>cloudy-data</module>
+        </modules>
+
 	<licenses>
 		<license>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
