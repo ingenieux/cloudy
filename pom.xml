@@ -6,8 +6,8 @@
 		<version>7</version>
 	</parent>
 
-	<groupId>br.com.ingenieux</groupId>
-	<artifactId>cloudy</artifactId>
+	<groupId>br.com.ingenieux.cloudy</groupId>
+	<artifactId>cloudy-parent</artifactId>
 	<version>0.0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>cloudy :: parent</name>
