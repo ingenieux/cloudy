@@ -3,3 +3,6 @@ syntax:glob
 target
 syntax:glob
 *.*~
+dependency-reduced-pom.xml
+syntax:glob
+tomcat.*
