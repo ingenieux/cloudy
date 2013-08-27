@@ -15,10 +15,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>br.com.ingenieux.cloudy</groupId>
-			<artifactId>cloudy-vfs2-s3</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk</artifactId>
 		</dependency>
