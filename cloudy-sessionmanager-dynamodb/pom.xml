@@ -7,9 +7,12 @@
 		<groupId>br.com.ingenieux.cloudy</groupId>
 		<artifactId>cloudy-parent</artifactId>
 		<version>0.0.4-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>cloudy-sessionmanager-dynamodb</artifactId>
+	
+	<name>cloudy :: cloudy-sessionmanager-dynamodb</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -58,35 +61,35 @@
 			<version>${tomcat.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<version>${tomcat.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jasper</artifactId>
 			<version>${tomcat.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jasper-el</artifactId>
 			<version>${tomcat.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jsp-api</artifactId>
 			<version>${tomcat.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -96,20 +99,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>br.com.ingenieux</groupId>
-				<artifactId>beanstalk-maven-plugin</artifactId>
-				<version>0.2.9</version>
-				<executions>
-					<execution>
-						<id>expose-security-credentials</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>expose-security-credentials</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -125,7 +114,6 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-
 							<minimizeJar>true</minimizeJar>
 							<relocations>
 								<relocation>
