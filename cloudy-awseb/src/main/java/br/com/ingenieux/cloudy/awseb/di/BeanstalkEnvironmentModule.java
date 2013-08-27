@@ -2,6 +2,7 @@ package br.com.ingenieux.cloudy.awseb.di;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -23,6 +24,22 @@ public class BeanstalkEnvironmentModule extends AbstractModule {
 	protected void configure() {
 	}
 	
+	@Provides
+	@Singleton
+	@Named("beanstalk.env")
+	@Inject
+	public EnvironmentDescription getEnvironmentDescription(@Named("beanstalk.env.id") String envId, AWSElasticBeanstalk eb) {
+		DescribeEnvironmentsResult environments = eb.describeEnvironments(new DescribeEnvironmentsRequest().withEnvironmentIds(envId));
+		
+		List<EnvironmentDescription> envs = environments.getEnvironments();
+		
+		if (envs.isEmpty()) {
+			return null;
+		}
+		
+		return envs.get(0);
+	}
+
 	@Provides
 	@Singleton
 	@Named("beanstalk.app.name")
@@ -81,5 +98,4 @@ public class BeanstalkEnvironmentModule extends AbstractModule {
 		
 		return "n/a";
 	}
-
 }

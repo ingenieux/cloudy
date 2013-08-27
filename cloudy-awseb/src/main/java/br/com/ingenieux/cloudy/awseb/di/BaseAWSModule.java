@@ -1,11 +1,8 @@
 package br.com.ingenieux.cloudy.awseb.di;
 
-import java.net.URL;
 import java.util.concurrent.ExecutorService;
 
-import javax.inject.Inject;
-
-import org.apache.commons.io.IOUtils;
+import br.com.ingenieux.cloudy.awseb.util.EC2MetadataUtil;
 
 import com.amazonaws.AmazonWebServiceClient;
 import com.amazonaws.ClientConfiguration;
@@ -51,9 +48,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Module;
 import com.google.inject.Provider;
 import com.google.inject.Provides;
-import com.google.inject.Singleton;
 import com.google.inject.binder.ScopedBindingBuilder;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 
 /**
@@ -88,22 +83,11 @@ public class BaseAWSModule extends AbstractModule implements Module {
 	public BaseAWSModule withDynamicRegion(String defaultRegion) {
 		String newRegion = defaultRegion;
 
-		String availZone = fetchMetadata("placement/availability-zone",
-				defaultRegion);
+		String availZone = EC2MetadataUtil.fetchMetadata("placement/availability-zone", defaultRegion);
 
 		newRegion = availZone.replaceAll("(\\d)\\p{Lower}$", "$1");
 
 		return withRegion(newRegion);
-	}
-
-	protected String fetchMetadata(String metaPath, String defaultResult) {
-		try {
-			return IOUtils.toString(new URL(
-					"http://169.254.169.254/latest/meta-data/" + metaPath)
-					.openStream());
-		} catch (Exception exc) {
-			return defaultResult;
-		}
 	}
 
 	/**
@@ -166,11 +150,11 @@ public class BaseAWSModule extends AbstractModule implements Module {
 	public <K extends AmazonWebServiceClient> ScopedBindingBuilder bindClient(
 			Class<K> serviceClazz) {
 		try {
-			//boolean asyncP = serviceClazz.getSimpleName().endsWith("Async");
+			// boolean asyncP = serviceClazz.getSimpleName().endsWith("Async");
 
 			Class<K> clientClazz = (Class<K>) Class.forName(serviceClazz
 					.getName() + "Client");
-			
+
 			AWSClientProvider<K> provider = new AWSClientProvider<K>(
 					clientClazz);
 
@@ -195,22 +179,11 @@ public class BaseAWSModule extends AbstractModule implements Module {
 
 		bind(String.class).annotatedWith(Names.named("aws.region")).toInstance(
 				region.getName());
-	}
-
-	@Provides
-	@Named("aws.instance.id")
-	@Inject
-	@Singleton
-	public String getInstanceId() {
-		return fetchMetadata("instance-id", "i-ffffffff");
-	}
-
-	@Provides
-	@Named("aws.instance.type")
-	@Inject
-	@Singleton
-	public String getInstanceType() {
-		return fetchMetadata("instance-type", "m0.verylarge");
+		bind(String.class).annotatedWith(Names.named("aws.availability.zone"))
+				.toInstance(
+						EC2MetadataUtil.fetchMetadata(
+								"placement/availability-zone", "us-east-1z"));
+		;
 	}
 
 	@SuppressWarnings("unchecked")

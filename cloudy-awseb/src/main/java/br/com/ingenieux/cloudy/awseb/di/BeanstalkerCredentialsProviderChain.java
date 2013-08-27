@@ -1,6 +1,5 @@
 package br.com.ingenieux.cloudy.awseb.di;
 
-import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.AWSCredentials;
@@ -34,10 +33,10 @@ public class BeanstalkerCredentialsProviderChain extends
 			AWSCredentialsProvider {
 		@Override
 		public AWSCredentials getCredentials() {
-			String awsAccessKeyId = System.getProperty("AWS_ACCESS_KEY_ID");
-			String awsSecretKey = System.getProperty("AWS_SECRET_KEY");
+			String awsAccessKeyId = System.getProperty("AWS_ACCESS_KEY_ID", "");
+			String awsSecretKey = System.getProperty("AWS_SECRET_KEY", "");
 
-			if (isNotBlank(awsAccessKeyId) && isNotBlank(awsSecretKey))
+			if (awsAccessKeyId.length() > 0 && awsSecretKey.length() > 0)
 				return new BasicAWSCredentials(awsAccessKeyId, awsSecretKey);
 
 			throw new AmazonClientException(
