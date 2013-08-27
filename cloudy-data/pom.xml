@@ -35,16 +35,6 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.googlecode.rocoto</groupId>
-			<artifactId>rocoto</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.99soft.guice</groupId>
-			<artifactId>rocoto</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<profiles>

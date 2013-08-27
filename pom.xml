@@ -81,16 +81,6 @@
 				<version>4.11-beta-1</version>
 			</dependency>
 			<dependency>
-				<groupId>com.googlecode.rocoto</groupId>
-				<artifactId>rocoto</artifactId>
-				<version>4.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.99soft.guice</groupId>
-				<artifactId>rocoto</artifactId>
-				<version>6.0</version>
-			</dependency>
-			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>4.3.0.Alpha1</version>
@@ -121,8 +111,8 @@
 				<version>2.4</version>
 				<configuration>
 					<!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>
