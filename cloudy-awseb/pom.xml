@@ -12,7 +12,7 @@
 	<artifactId>cloudy-awseb</artifactId>
 
 	<name>cloudy :: cloudy-awseb</name>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>br.com.ingenieux.cloudy</groupId>
