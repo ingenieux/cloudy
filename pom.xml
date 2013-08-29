@@ -25,7 +25,6 @@
 	<modules>
 		<module>cloudy-data</module>
 		<module>cloudy-vfs2-s3</module>
-		<module>cloudy-sessionmanager-dynamodb</module>
 		<module>cloudy-awseb</module>
 	</modules>
 
