@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>cloudy-parent</artifactId>
 		<groupId>br.com.ingenieux.cloudy</groupId>
-		<version>0.0.4</version>
+		<version>0.0.5-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>cloudy-data</artifactId>

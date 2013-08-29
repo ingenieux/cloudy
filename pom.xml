@@ -9,7 +9,7 @@
 
 	<groupId>br.com.ingenieux.cloudy</groupId>
 	<artifactId>cloudy-parent</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>cloudy :: parent</name>
 
