@@ -35,9 +35,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:hg:https://bitbucket.org/ingenieux/cloudy</connection>
+		<connection>scm:hg:ssh://hg@bitbucket.org/ingenieux/cloudy</connection>
 		<url>http://bitbucket.org/ingenieux/cloudy</url>
-		<developerConnection>scm:hg:https://bitbucket.org/ingenieux/cloudy</developerConnection>
+		<developerConnection>scm:hg:ssh://hg@bitbucket.org/ingenieux/cloudy</developerConnection>
 	</scm>
 
 	<dependencyManagement>
