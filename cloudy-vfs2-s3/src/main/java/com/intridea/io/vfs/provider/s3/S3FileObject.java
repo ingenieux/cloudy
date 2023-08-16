@@ -1,5 +1,6 @@
 package com.intridea.io.vfs.provider.s3;
 
+import java.nio.file.Files;
 import static org.apache.commons.vfs2.FileName.SEPARATOR;
 import static org.apache.commons.vfs2.FileName.SEPARATOR_CHAR;
 
@@ -358,7 +359,7 @@ public class S3FileObject extends AbstractFileObject {
 	@SuppressWarnings("resource")
 	private FileChannel getCacheFileChannel() throws IOException {
 		if (cacheFile == null) {
-			cacheFile = File.createTempFile("scalr.", ".s3");
+			cacheFile = Files.createTempFile("scalr.", ".s3");
 		}
 		return new RandomAccessFile(cacheFile, "rw").getChannel();
 	}
